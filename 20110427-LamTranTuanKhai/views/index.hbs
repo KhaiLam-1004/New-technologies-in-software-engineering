@@ -1,0 +1,21 @@
+<div class="container">
+ 
+    <!-- Cột trái -->
+    <div class="col-sm-4">
+      <h3>Post List</h3>
+        {{#each posts}}
+    <ul>
+        <a class="list-group-item list-group-item-action" href="/post/{{this.id}}">{{this.title}}</a>
+        <button onclick="window.location.href='/edit/{{this.id}}'"class="btn btn-primary">Edit</button>
+        <button onclick="deletePost('{{this.id}}')" class="btn btn-secondary">Delete</button>
+    </ul>
+    {{/each}}
+    </div>
+</div>
+<script>
+    function deletePost(postId) {
+        if (confirm('Bạn có chắc muốn xóa bài viết này không?')) {
+            window.location.href = '/delete/' + postId;
+        }
+    }
+</script>
